@@ -28,6 +28,12 @@ class BredsImpl: Breds {
     }
 
 
+    override fun setAuth(host: String, port: Int, password: String) {
+        Companion.host = host
+        Companion.port = port
+        Companion.password = password
+    }
+
     override fun run(cache: Boolean, block: suspend (Jedis) -> Unit) {
         runBlocking {
             val job = launch(Dispatchers.Default) {
